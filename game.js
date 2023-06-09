@@ -5,8 +5,6 @@ const paddleWidth = 5;
 const paddleHeight = 20;
 
 let playerSpeed = 3;
-let player1Score = 0;
-let player2Score = 0;
 let player1 = {
     x: 10 + paddleWidth,
     y: canvas.height / 2 - 25,
@@ -90,7 +88,6 @@ function checkCollisions() {
 		player1.score++;
 		resetBall();
 	}
-
 }
 
 function resetBall(){
@@ -104,26 +101,26 @@ function resetBall(){
 document.addEventListener("keydown", handleKeyDown);
 document.addEventListener("keyup", handleKeyUp);
 function handleKeyDown(event) {
-    if (event.key === "w") {
-        // Up arrow key
-        player1.dy -= playerSpeed;
-      } else if (event.key === "s") {
-        // Down arrow key
-        player1.dy += playerSpeed;
-      } else if (event.key === "o") {
-        // W key
-        player2.dy -= playerSpeed;
-      } else if (event.key === "l") {
-        // S key
-        player2.dy += playerSpeed;
-      }
+  if (event.key === "w") {
+      // Up arrow key
+      player1.dy -= playerSpeed;
+    } else if (event.key === "s") {
+      // Down arrow key
+      player1.dy += playerSpeed;
+    } else if (event.key === "o") {
+      // W key
+      player2.dy -= playerSpeed;
+    } else if (event.key === "l") {
+      // S key
+      player2.dy += playerSpeed;
+    }
 }
 function handleKeyUp(event) {
-    if (event.key === "w" || event.key === "s") {
-        player1.dy = 0;
-    } else if (event.key === "o"|| event.key === "l") {
-        player2.dy = 0;
-    }
+  if (event.key === "w" || event.key === "s") {
+    player1.dy = 0;
+  } else if (event.key === "o"|| event.key === "l") {
+    player2.dy = 0;
+  }
 }
 
 function movePlayer1() {
@@ -131,11 +128,11 @@ function movePlayer1() {
 
   // Keep the paddle within the canvas bounds
   if (player1.y < 0) {
-      player1.y = 0;
-    }
-    if (player1.y + player1.height > canvas.height) {
-      player1.y = canvas.height - player1.height;
-    }
+    player1.y = 0;
+  }
+  if (player1.y + player1.height > canvas.height) {
+    player1.y = canvas.height - player1.height;
+  }
 }
 function movePlayer2() {
 	player2.y += player2.dy;
@@ -143,10 +140,10 @@ function movePlayer2() {
 	// Keep the paddle within the canvas bounds
 	if (player2.y < 0) {
 		player2.y = 0;
-	  }
-	  if (player2.y + player2.height > canvas.height) {
-		player2.y = canvas.height - player2.height;
-	  }
+  }
+  if (player2.y + player2.height > canvas.height) {
+    player2.y = canvas.height - player2.height;
+  }
   }
 
 function update() {
