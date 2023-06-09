@@ -158,4 +158,18 @@ function update() {
 	requestAnimationFrame(update);
 }
 
-update();
+function init() {
+  requestAnimationFrame(update);
+}
+
+function drawStart(){
+  // Draw the background
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // Draw the score
+  ctx.fillStyle = 'white';
+  ctx.font = '15px Arial';
+  ctx.fillText(`Press Play to start Game`, 30, canvas.height / 2);
+}
+
+drawStart();
